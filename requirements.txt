@@ -6,3 +6,8 @@ python-decouple
 pyjwt
 drf-yasg
 django-filter
+djangorestframework-simplejwt
+django-ckeditor
+requests
+beautifulsoup4
+lxml
