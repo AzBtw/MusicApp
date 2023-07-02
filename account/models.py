@@ -7,10 +7,10 @@ from .managers import UserManager
 
 
 class CustomUser(AbstractUser):
+    username = models.CharField(max_length=100, unique=True)
     email = models.EmailField('email address', unique=True)
     password = models.CharField(max_length=255)
     activation_code = models.CharField(max_length=255, blank=True)
-    username = models.CharField(max_length=100, unique=True)
     first_name = models.CharField(_("first name"), max_length=150)
     last_name = models.CharField(_("last name"), max_length=150)
     avatar = models.ImageField(upload_to='avatars', blank=True, default='avatars/default_avatar.jpg')
@@ -24,7 +24,7 @@ class CustomUser(AbstractUser):
     )
     objects = UserManager()
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
 
     def __str__(self):
         return f'{self.username} : {self.email}'
