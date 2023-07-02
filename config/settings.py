@@ -49,10 +49,9 @@ INSTALLED_APPS = [
     # my apps
     'account',
     'category',
-    'artist',
+    'artists',
     'follower',
     'like',
-    'playlists',
     'songs',
 ]
 
