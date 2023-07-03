@@ -14,12 +14,17 @@ class SongSerializer(serializers.ModelSerializer):
 
 
 class SongListSerializer(serializers.ModelSerializer):
+    artist_name = serializers.StringRelatedField()
+
     class Meta:
         model = Song
         fields = ('title', 'artist_name', 'image', 'duration',)
 
 
 class SongDetailSerializer(serializers.ModelSerializer):
+    artist_name = serializers.StringRelatedField()
+    category = serializers.StringRelatedField()
+
     class Meta:
         model = Song
         fields = '__all__'
