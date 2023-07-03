@@ -6,9 +6,11 @@ from songs.models import Song, Playlist
 # Song Serializers
 
 class SongSerializer(serializers.ModelSerializer):
+    artist_name = serializers.StringRelatedField()
+
     class Meta:
         model = Song
-        fields = ('title', 'image', 'duration')
+        fields = ('title', 'artist_name', 'image', 'duration')
 
 
 class SongListSerializer(serializers.ModelSerializer):
