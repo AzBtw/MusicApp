@@ -2,6 +2,7 @@ from django.db import models
 
 from account.models import CustomUser
 from artists.models import Artist
+from categories.models import Category
 
 
 class Playlist(models.Model):
@@ -20,7 +21,7 @@ class Song(models.Model):
     artist_name = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='songs')
     # album_name = models.CharField(max_length=100)
     audio_link = models.URLField(blank=True, null=True)
-    category = models.CharField(max_length=100)
+    category = models.ForeignKey(Category, related_name='songs', on_delete=models.SET_NULL, null=True)
     duration = models.CharField(max_length=20)
     year = models.DateField()
     # playlist = models.ForeignKey(Playlist, on_delete=models.SET_NULL, related_name='playlists', blank=True, null=True)

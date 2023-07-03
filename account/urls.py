@@ -6,7 +6,7 @@ from account.views import UserViewSet
 
 router = SimpleRouter()
 router.register('', UserViewSet)
-
+router.register('info', views.UserViewSetSet)
 
 urlpatterns = [
     path('login/', views.LoginView.as_view()),
